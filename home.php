@@ -169,10 +169,10 @@
                 </div>
                 <div class="news_post_content">
                   <?php
-                    $content = get_the_content();
-                    $content = wp_strip_all_tags($content);
-                    $content = mb_substr($content, 0, 50, 'UTF-8');
-                    echo $content . "...";
+                  $content = get_the_content();
+                  $content = wp_strip_all_tags($content);
+                  $content = mb_substr($content, 0, 50, 'UTF-8');
+                  echo $content . "...";
                   ?>
                 </div>
               </div>
@@ -183,6 +183,43 @@
         <?php wp_reset_postdata(); ?>
       </div>
       <!-- イベントここまで -->
+
+      <!-- 卒業生の声 -->
+      <div class="col-lg-6 col-md-6 col-sx-12 news_col">
+        <div class="home_title">Graduates</div>
+        <div class="home_title_sub">卒業生の声</div>
+        <?php
+        $args = array(
+          'post_type'      => 'post',
+          'category_name' => 'graduates',
+          'posts_per_page' => 3,
+        );
+        $posts = get_posts($args);
+        ?>
+        <?php foreach ($posts as $post): ?>
+          <?php setup_postdata($post); ?>
+          <div class="news_post_small">
+            <div class="news_post_meta">
+              <ul>
+                <li>
+                  <a href="<?php echo get_permalink(); ?>">
+                    <?php echo get_the_date(); ?>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="news_post_small_title">
+              <a href="<?php the_permalink(); ?>">
+                <?php the_title(); ?>
+              </a>
+            </div>
+          </div>
+
+        <?php endforeach; ?>
+        <?php wp_reset_postdata(); ?>
+      </div>
+      <!-- 卒業生の声ここまで -->
+
     </div>
   </div>
 </div>

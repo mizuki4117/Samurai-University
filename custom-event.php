@@ -56,7 +56,7 @@ Template Post Type: post
                         </div>
                         <div class="col-lg-10 col-md-10 col-sx-12">
                           <div class="news_post_small_header">
-                            <img src="i" <?php echo get_template_directory_uri(); ?>/images/tags-solid.png" alt="" /><?php echo $catname; ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/tags-solid.png" alt="" /><?php echo $catname; ?>
                           </div>
                           <div class="news_detail_title">
                             <?php the_title(); ?>
@@ -95,14 +95,11 @@ Template Post Type: post
             </div>
           </div>
         </div>
+        <div class="col-lg-4" style="background-color: #2b7b8e33">
+          <?php get_sidebar(); ?>
+        </div>
       </div>
-    </div>
-  <?php endwhile; ?>
-<?php endif; ?>
+    <?php endwhile; ?>
+  <?php endif; ?>
 
-<!-- Course Sidebar -->
-<div class="col-lg-4" style="background-color: #2b7b8e33">
-  <?php get_sidebar(); ?>
-</div>
-
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

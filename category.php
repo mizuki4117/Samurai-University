@@ -89,7 +89,6 @@
                     </div>
                     <?php endwhile; ?>
                     <?php endif; ?>
-
                     <div class="news-pagination">
                       <?php
                         echo paginate_links(array(
